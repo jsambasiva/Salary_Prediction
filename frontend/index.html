@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Salary Predictor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="layout">
+    <section class="panel form-panel">
+      <h1>What should this job pay?</h1>
+      <p class="lead">Fill in the details and get an estimated yearly salary.</p>
+
+      <form id="salary-form" novalidate>
+        <div class="field">
+          <label for="experience">Years of experience</label>
+          <input type="number" id="experience" name="experience" min="0" max="40" step="0.5" value="3" required />
+        </div>
+
+        <div class="field">
+          <label for="education">Education</label>
+          <select id="education" name="education">
+            <option>High School</option>
+            <option selected>Bachelor</option>
+            <option>Master</option>
+            <option>PhD</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="job_role">Job role</label>
+          <select id="job_role" name="job_role">
+            <option>Software Engineer</option>
+            <option>Data Scientist</option>
+            <option>Data Analyst</option>
+            <option>Web Developer</option>
+            <option>DevOps Engineer</option>
+            <option>UI/UX Designer</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="city_tier">City type</label>
+          <select id="city_tier" name="city_tier">
+            <option value="Tier 1">Tier 1 (metro)</option>
+            <option value="Tier 2" selected>Tier 2</option>
+            <option value="Tier 3">Tier 3</option>
+          </select>
+        </div>
+
+        <button type="submit" id="submit-btn">Predict salary</button>
+      </form>
+    </section>
+
+    <section class="panel result-panel" aria-live="polite">
+      <div id="empty-state">
+        <p>Your estimate will appear here.</p>
+      </div>
+
+      <div id="result" hidden>
+        <p class="result-label">Estimated yearly salary</p>
+        <p class="result-amount" id="amount"></p>
+        <p class="result-words" id="amount-words"></p>
+
+        <div class="range">
+          <div class="range-bar"><span id="range-fill"></span></div>
+          <div class="range-labels">
+            <span id="low"></span>
+            <span id="high"></span>
+          </div>
+          <p class="range-note">Likely range for similar profiles</p>
+        </div>
+      </div>
+
+      <p id="error" class="error" hidden></p>
+    </section>
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
