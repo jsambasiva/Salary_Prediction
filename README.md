@@ -37,7 +37,7 @@ cd backend
 uvicorn main:app --reload
 ```
 
-Open http://127.0.0.1:8000 (API docs: http://127.0.0.1:8000/docs). The model trains on first start and is saved as `backend/salary_model.joblib`.
+Open http://13.127.1.240:5000/. The model trains on first start and is saved as `backend/salary_model.joblib`.
 
 ## API
 
